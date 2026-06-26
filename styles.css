@@ -399,6 +399,108 @@ a {
   height: 1.05rem;
 }
 
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 4.5rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: min(1120px, calc(100% - 1.25rem));
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(7, 17, 31, 0.96);
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.35rem 0;
+  }
+
+  .hero {
+    padding: 3.75rem 0 3rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-socials {
+    flex-direction: column;
+  }
+
+  .social-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1,
+  .section-heading h2,
+  .contact-box h2 {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+  }
+
+  .hero-card,
+  .skill-card,
+  .project-card,
+  .contact-box {
+    border-radius: 18px;
+  }
+
+  .contact-box {
+    padding: 1.25rem;
+  }
+}
+
 .site-footer {
   padding: 1.25rem 0 2rem;
   color: var(--muted);
