@@ -1,7 +1,6 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const year = document.getElementById('year');
-const accordionItems = document.querySelectorAll('.accordion-item');
 const contactForm = document.getElementById('contactForm');
 const contactStatus = document.getElementById('contact-status');
 
@@ -21,30 +20,14 @@ if (navToggle && navLinks) {
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 }
-
-accordionItems.forEach((item) => {
-  const trigger = item.querySelector('.accordion-trigger');
-
-  if (trigger) {
-    trigger.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      accordionItems.forEach((entry) => {
-        entry.classList.remove('active');
-        const entryTrigger = entry.querySelector('.accordion-trigger');
-        if (entryTrigger) {
-          entryTrigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      if (!isActive) {
-        item.classList.add('active');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  }
-});
 
 if (contactForm && contactStatus) {
   contactForm.addEventListener('submit', (event) => {
@@ -58,7 +41,7 @@ if (contactForm && contactStatus) {
     const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${senderEmail}\n\n${message}`);
 
-    window.location.href = `mailto:stephenobare12@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:stepheneobare1@gmail.com?subject=${subject}&body=${body}`;
     contactForm.reset();
     contactStatus.textContent = 'Your email app should open with a new message ready to send.';
   });
