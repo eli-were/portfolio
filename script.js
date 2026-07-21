@@ -148,6 +148,10 @@
   if (prefersReducedMotion) {
     // Instantly show everything for accessibility
     revealTargets.forEach((el) => el.classList.add('revealed'));
+    document.querySelectorAll('.timeline-item, .competency-grid article').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
   } else {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -158,7 +162,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
     );
 
     revealTargets.forEach((el) => revealObserver.observe(el));
