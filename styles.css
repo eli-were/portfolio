@@ -40,18 +40,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 90%);
-}
+
 
 a {
   color: inherit;
@@ -245,6 +234,9 @@ img {
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+.hero .eyebrow {
+  margin-top: -2rem;
 }
 
 .hero h1,
@@ -458,7 +450,7 @@ img {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.5rem;
   background: transparent;
 }
@@ -955,10 +947,42 @@ img {
   font-size: 0.88rem;
 }
 
+/* ── Research Empty State ── */
+
+.research-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1.5rem;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+}
+
+.research-empty i {
+  font-size: 2rem;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.research-empty p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ── Contact Section ── */
+
 .contact-section {
   position: relative;
   overflow: hidden;
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--line);
 }
 
 .contact-section::before {
@@ -1388,6 +1412,10 @@ img {
     text-align: right;
   }
 
+  .impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .competency-grid,
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1435,9 +1463,12 @@ img {
   }
 
   .hero-actions,
-  .impact-grid,
   .competency-grid {
     grid-template-columns: 1fr;
+  }
+
+  .impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .skills-grid {
